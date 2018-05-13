@@ -7,7 +7,7 @@ var connection = mysql.createConnection({
   user: "root",
   // Your password
   password: "",
-  database: "topicDB"
+  database: "stack_scholarDB"
 });
 connection.connect(function(err) {
   if (err) throw err;
@@ -39,7 +39,7 @@ function topicSearch() {
       message: "What field of study would you like to search for?"
     })
     .then(function(answer) {
-      var query = "SELECT fieldofstudy FROM topicDB WHERE ?";
+      var query = "SELECT topics_a FROM stack_scholarDB WHERE ?";
       connection.query(query, { fieldofstudy: answer.fieldofstudy}, function(err, res) {
         for (var i = 0; i < res.length; i++) {
           console.log("Topic: " + res[i].topic);
@@ -50,7 +50,7 @@ function topicSearch() {
 };
 then(function(answer) {
       console.log(answer.song);
-      connection.query("SELECT fieldofstudy FROM topicDB WHERE ?", { topic: answer.topic }, function(err, res) {
+      connection.query("SELECT topics_a FROM stack_scholarDB WHERE ?", { topic: answer.topic }, function(err, res) {
         console.log(
           "topic: " +
             res[0].position
