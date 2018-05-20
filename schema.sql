@@ -10,7 +10,9 @@ CREATE TABLE users (
     email VARCHAR(100),
     affiliation VARCHAR(100),
     rating DECIMAL (1,1),
-    contributions INT
+    contributions INT, 
+    passwd VARCHAR(100), 
+    username VARCHAR(100)
 );
 
 CREATE TABLE topics_a (

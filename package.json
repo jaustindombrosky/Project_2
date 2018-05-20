@@ -1,19 +1,18 @@
 {
-  "name": "project_2",
+  "name": "login",
   "version": "1.0.0",
   "description": "",
-  "main": "script.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "server.js",
+  "dependencies": {
+    "body-parser": "^1.15.0",
+    "express": "^4.13.4"
   },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/Salvantis/Project_2.git"
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node script.js",
+    "watch": "nodemon script.js"
   },
   "author": "",
-  "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/Salvantis/Project_2/issues"
-  },
-  "homepage": "https://github.com/Salvantis/Project_2#readme"
+  "license": "ISC"
 }
