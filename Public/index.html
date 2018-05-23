@@ -96,22 +96,18 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="username">Username</label>
-            <input id="inputUsername" type="text" placeholder="Username" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input id="inputEmail" type="text" placeholder="Email" class="form-control">
+            <label for="username">Email</label>
+            <input id="userEmail" type="text" placeholder="Email" class="form-control">
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input id="inputPassword" type="password" placeholder="Password" class="form-control">
+            <input id="userPassword" type="password" placeholder="Password" class="form-control">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button id="closeButton" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button id="createButton" class="btn btn-danger" data-dismiss="modal">Login</button>
+        <button id="loginButton" class="btn btn-danger" data-dismiss="modal">Login</button>
       </div>
     </div>
   </div>
@@ -128,27 +124,27 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       </div>
       <div class="modal-body">
         <form>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="newEmail" type="text" placeholder="Email" class="form-control">
+              </div>
           <div class="form-group">
-            <label for="username">Username</label>
-            <input id="inputUsername" type="text" placeholder="Username" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="email">Email</label>
-            <input id="inputEmail" type="email" placeholder="Email" class="form-control">
+            <label for="name">Username</label>
+            <input id="newName" type="text" placeholder="Username" class="form-control">
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input id="inputPassword" type="password" placeholder="Password" class="form-control">
+            <input id="newPassword" type="password" placeholder="Password" class="form-control">
           </div>
           <div class="form-group">
             <label for="password">Repeat Password</label>
-            <input id="repeatPassword" type="password" placeholder="Repeat Password" class="form-control">
+            <input id="confirmPassword" type="password" placeholder="Repeat Password" class="form-control">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button id="loginButton" class="btn btn-danger" data-dismiss="modal">Sign Up</button>
+        <button id="createButton" class="btn btn-danger" data-dismiss="modal">Sign Up</button>
       </div>
     </div>
   </div>
