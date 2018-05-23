@@ -37,12 +37,8 @@ $(document).ready(function() {
       }
     });
   
-    $("#register").click(function() {
-      $("#welcomeToAdventure").addClass("hide");
-      $("#registerNewPlayer").removeClass("hide");
-    });
-  
-    $("#loginButton").on("click", function(event) {
+    
+    $("#createButton").on("click", function(event) {
   
       var newEmail = $("#inputEmail").val();
       var newPassword = $("#inputPassword").val();
