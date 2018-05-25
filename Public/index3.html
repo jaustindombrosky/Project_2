@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+<head><
 <title>User Page</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-red.css">
 <link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Open+Sans'>
@@ -12,6 +14,7 @@
   .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
   .fa-anchor,.fa-coffee {font-size:200px}
   </style>
+  </head>
 
 <body class="w3-theme-l5">
 
@@ -37,9 +40,13 @@
           <a href="#" class="w3-bar-item w3-button">John Doe posted on your wall</a>
           <a href="#" class="w3-bar-item w3-button">Jane likes your post</a>
         </div>
+        
       </div>
       <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account">
       </a>
+      <a id="signoutButton" href="index.html" class="w3-bar-item  w3-button w3-hide-small w3-padding-large w3-hover w3-right" title="Sign Out">
+          <i class="fa fa-sign-out" aria-hidden="true"></i>
+        </a>
     </div>
   </div>
 
