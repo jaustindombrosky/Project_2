@@ -3,11 +3,11 @@ var admin = require("firebase-admin");
 
 // Get a database reference to our blog
 var userdb = admin.database();
-var ref = userdb.ref("server/saving-data/fireblog");
+var ref =  db.ref("server/saving-data/fireblog");
 
 var usersRef = ref.child("users");
 usersRef.set({
-  alanisawesome: {git 
+  alanisawesome: {
     date_of_birth: "June 23, 1912",
     full_name: "Alan Turing"
   },
