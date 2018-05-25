@@ -1,0 +1,68 @@
+* {
+	box-sizing: border-box;
+}
+
+body {
+	position: relative;
+	font-family: 'Passion One', cursive;
+	font-size: 2em;
+}
+
+body:after {
+	content : "";
+	display: block;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: url(../image/stack_background.jpg);
+	background-size: cover;
+	background-repeat:no-repeat;
+	width: 100%;
+	min-height: 100vh;
+	opacity : 0.3;
+	z-index: -1;
+}
+
+h1 {
+	color: red;
+	font-size: 2em !important;
+}
+
+#page-name {
+	text-align: center;
+	margin: 30px 0;
+}
+
+#main-image {
+	height: 150px;
+}
+
+.col-left {
+	padding-left: 20%;
+}
+
+.col-right {
+	text-align: left;
+}
+
+.table-first-col {
+	width: 270px;
+}
+
+td {
+    height: 50px;
+    vertical-align: center;
+}
+
+.create-form {
+	margin-top: 50px;
+	text-align: center;
+}
+.textdiv {
+	display: flex;
+	justify-content: center;
+  }
+  
+  textarea {
+	width: 90%;
+  }

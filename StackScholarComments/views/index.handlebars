@@ -1,0 +1,32 @@
+<div class="container">
+    <section id="page-name">
+            <h2>Comments Welcome</h2>
+    </section>
+
+    <section class="row">
+        <div>
+            <table class="table">
+                {{#each stacks}}
+                    {{#unless finalized}}
+                        {{> stacks/stack-block}}
+                    {{/unless}}
+                {{/each}}
+            </table>
+        </div>
+        <div>
+            {{#each stacks}}
+                {{#if finalized}}
+                    <div>{{id}}. {{stack_name}}</div>
+                {{/if}}
+            {{/each}}        
+        </div>          
+    </section>
+
+    <form class="create-form">
+        <div class="form-group; textdiv">
+            <label for="name"></label>
+            <textarea id="name" name="stack-name" rows="5" placeholder="Enter your comment"></textarea>
+        </div>
+        <button type="submit">Submit Comment</button>
+    </form>     
+</div>
