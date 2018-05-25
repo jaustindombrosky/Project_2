@@ -1,9 +1,9 @@
 var outputData = [
   {
-    customerName: "Ahmed",
-    customerEmail: "ahmed@example.com",
-    customerID: "afhaque89",
-    phoneNumber: "000-000-0000"
+    customerName: "Kailey",
+    customerEmail: "Kailey@example.com",
+    customerID: "kailey88",
+    phoneNumber: "555-555-5555"
   }
 ];
 
