@@ -27,7 +27,7 @@ $(document).ready(function() {
   
         if (!isLoggingInViaRegistration) {
           // alert("isLoggingInViaRegistration");
-          window.location = "index.html";
+          window.location = "index3.html";
         }
   
         // ...
@@ -142,3 +142,11 @@ $(document).ready(function() {
         .catch(err => alert(err.message));
     });
   });
+
+  $("#signoutButton").on("click", function(event) {
+     firebase.auth().signOut().then(function() {
+    // Sign-out successful.
+  }).catch(function(error) {
+    // An error happened.
+  });
+});
