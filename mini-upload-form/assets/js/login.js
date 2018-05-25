@@ -39,17 +39,17 @@ $(document).ready(function() {
   
     
     $("#loginButton").on("click", function(event) {
-  
-      var userEmail = $("#inputEmail").val();
-      var userPassword = $("#inputPassword").val();
+      alert("I really really want to log in");
+      var userEmail = $("#userEmail").val();
+      var userPassword = $("#userPassword").val();
       console.log(userEmail);
       console.log(userPassword);
   
       firebase
         .auth()
         .signInWithEmailAndPassword(userEmail, userPassword)
-        .then(data => {
-          console.log(data);
+        .then(function(user) {
+          console.log('signinwithemailandpassowrd', user);
         })
         .catch(function(error) {
           if (error.code == "auth/user-not-found") {
@@ -117,7 +117,7 @@ $(document).ready(function() {
           user => {
             console.log('moving user');
             console.log(user);
-            window.location = "index3.html";
+            window.location = "index.html";
           },
           error => {
             // Handle Errors here.
@@ -145,8 +145,11 @@ $(document).ready(function() {
 
   $("#signoutButton").on("click", function(event) {
      firebase.auth().signOut().then(function() {
+      window.location = "index.html";
     // Sign-out successful.
   }).catch(function(error) {
     // An error happened.
+    
   });
+  
 });
