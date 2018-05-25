@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Five Star Rating</title>
+    <meta charset="utf-8" />
+    <style>
+        .empty_star {
+            background-image: url(../images/empty_star.png);
+            background-size: 20px;
+            height: 20px;
+            width: 20px;
+            background-position: center;
+        }
+
+        .yellow_star {
+            background-image: url(../images/yellow_star.png);
+            background-size: 20px;
+            height: 20px;
+            width: 20px;
+            background-position: center;
+        }
+
+        table,
+        tr,
+        td {
+            border-collapse: collapse;
+        }
+    </style>
+</head>
+
+<body>
+    <table>
+        <tr item_id="1">
+            <td>Item #1</td>
+            <td star="true" class="empty_star">
+            </td>
+            <td star="true" class="empty_star">
+            </td>
+            <td star="true" class="empty_star">
+            </td>
+            <td star="true" class="empty_star">
+            </td>
+            <td star="true" class="empty_star">
+            </td>
+        </tr>
+        <tr item_id="2">
+            <td>Item #2</td>
+            <td star="true" class="empty_star">
+            </td>
+            <td star="true" class="empty_star">
+            </td>
+            <td star="true" class="empty_star">
+            </td>
+            <td star="true" class="empty_star">
+            </td>
+            <td star="true" class="empty_star">
+            </td>
+        </tr>
+        <tr item_id="3">
+            <td>Item #3</td>
+            <td star="true" class="empty_star">
+            </td>
+            <td star="true" class="empty_star">
+            </td>
+            <td star="true" class="empty_star">
+            </td>
+            <td star="true" class="empty_star">
+            </td>
+            <td star="true" class="empty_star">
+            </td>
+        </tr>
+    </table>
+    <script src="//ajax.aspnetcdn.com/ajax/jQuery/jquery-2.1.4.min.js"></script>
+    <script>
+        $(function () {
+            function GetAverageVote() {
+                var itemsget = $("table tbody tr td[star='true']");
+                $.each(itemsget, function (i, l) {
+                    var itemID = $(l).parent().attr("item_id");
+                    if (itemID != null) {
+                        var getvote = new Object();
+                        getvote.itemID = itemID;
+                        $.ajax({
+                            url: 'api/GetVote',
+                            type: 'POST',
+                            dataType: 'json',
+                            data: getvote,
+                            success: function (data, textStatus, xhr) {
+                                var iSelectedGet;
+                                iSelectedGet = data - 1;
+                                if (data > 0) {
+                                    $(this).addClass("empty_star");
+                                    $(this).prevAll("[star='true']").addClass("empty_star");
+                                    var itemsget2 = $("table tbody tr[item_id='" + itemID + "'] td[star='true']");
+                                    $.each(itemsget2, function (i, l) {
+                                        if (i <= iSelectedGet) {
+                                            $(l).addClass("yellow_star");
+                                            $(l).prevAll("[star='true']").addClass("yellow_star");
+                                        }
+                                        $(l).attr("myindex", iSelectedGet);
+                                    });
+                                }
+                            },
+                            error: function (xhr, textStatus, errorThrown) {
+                                alert('Error in Operation' + textStatus + ' ' + errorThrown);
+                            }
+                        });
+                    } else {
+                    }
+                });
+            }
+            GetAverageVote();
+            $("table tbody tr td[star='true']").hover(function () {
+                $(this).removeClass("empty_star");
+                $(this).addClass("yellow_star");
+                $(this).prevAll("[star='true']").removeClass("empty_star");
+                $(this).prevAll("[star='true']").addClass("yellow_star");
+                $(this).nextAll("[star='true']").addClass("empty_star");
+            });
+            $("table tbody tr td[star='true']").mouseleave(function () {
+                $(this).removeClass("yellow_star");
+                $(this).addClass("empty_star");
+                $(this).prevAll("[star='true']").removeClass("yellow_star");
+                $(this).prevAll("[star='true']").addClass("empty_star");
+                var myindex = $(this).attr("myindex");
+                var itemID = $(this).parent().attr("item_id");
+                var items = $("table tbody tr[item_id='" + itemID + "'] td[star='true']");
+                $.each(items, function (i, l) {
+                    if (i <= myindex) {
+                        $(l).addClass("yellow_star");
+                        $(l).prevAll("[star='true']").addClass("yellow_star");
+                    }
+                });
+            });
+            $("table tbody tr td[star='true']").click(function (event) {
+                var index = parseInt($(this).index());
+                var itemID = $(this).parent().attr("item_id");
+                var vote = new Object();
+                vote.castvote = index;
+                vote.itemID = itemID;
+                $.ajax({
+                    url: 'api/CastVote',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: vote,
+                    success: function (data, textStatus, xhr) {
+                        var iSelected;
+                        iSelected = data - 1;
+                        $(this).addClass("empty_star");
+                        $(this).prevAll("[star = 'true']").addClass("empty_star");
+                        var items = $("table tbody tr[item_id='" + itemID + "'] td[star = 'true']");
+                        $.each(items, function (i, l) {
+                            if (i <= iSelected) {
+                                $(l).addClass("yellow_star");
+                                $(l).prevAll("[star = 'true']").addClass("yellow_star");
+                            }
+                            $(l).attr("myindex", iSelected);
+                        });
+                        GetAverageVote();
+                    },
+                    error: function (xhr, textStatus, errorThrown) {
+                        alert("error in Cast Vote " + textStatus + " " + errorThrown);
+                    }
+                });
+            });
+        });
+
+    </script>
+</body>
+
+</html>
+</script>
+</body>
+
+</html>
