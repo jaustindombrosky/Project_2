@@ -1,8 +1,10 @@
 <!DOCTYPE html>
 <html>
+<head>
 <title>Stack Scholar</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
@@ -14,6 +16,7 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 .w3-bar,h1,button {font-family: "Montserrat", sans-serif}
 .fa-anchor,.fa-coffee {font-size:200px}
 </style>
+</head>
 <body>
 
 <!-- Navbar -->
@@ -91,18 +94,19 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       <div class="modal-body">
         <form>
           <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" placeholder="Username" class="form-control">
+            <label for="username">Email</label>
+            <input id="userEmail" type="text" placeholder="Email" class="form-control">
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" placeholder="Password" class="form-control">
+            <input id="userPassword" type="password" placeholder="Password" class="form-control">
           </div>
         </form>
       </div>
       <div class="modal-footer">
-        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button class="btn btn-danger" data-dismiss="modal">Login</button>
+        <button id="forgot" class="btn btn-danger" data-dismiss="modal">Forgot Password</button>
+        <button id="closeButton" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="loginButton" class="btn btn-danger" data-dismiss="modal">Login</button>
       </div>
     </div>
   </div>
@@ -119,23 +123,27 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
       </div>
       <div class="modal-body">
         <form>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input id="newEmail" type="text" placeholder="Email" class="form-control">
+              </div>
           <div class="form-group">
-            <label for="username">Username</label>
-            <input type="text" placeholder="Username" class="form-control">
+            <label for="name">Username</label>
+            <input id="newName" type="text" placeholder="Username" class="form-control">
           </div>
           <div class="form-group">
             <label for="password">Password</label>
-            <input type="password" placeholder="Password" class="form-control">
+            <input id="newPassword" type="password" placeholder="Password" class="form-control">
           </div>
           <div class="form-group">
             <label for="password">Repeat Password</label>
-            <input type="password" placeholder="Repeat Password" class="form-control">
+            <input id="confirmPassword" type="password" placeholder="Repeat Password" class="form-control">
           </div>
         </form>
       </div>
       <div class="modal-footer">
         <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button class="btn btn-danger" data-dismiss="modal">Sign Up</button>
+        <button id="createButton" class="btn btn-danger" data-dismiss="modal">Sign Up</button>
       </div>
     </div>
   </div>
@@ -147,12 +155,12 @@ body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
 <!-- Footer -->
 <footer class="w3-container w3-padding-64 w3-center w3-opacity">  
   <div class="w3-xlarge w3-padding-32">
-    <i class="fa fa-facebook-official w3-hover-opacity"></i>
-    <i class="fa fa-instagram w3-hover-opacity"></i>
-    <i class="fa fa-snapchat w3-hover-opacity"></i>
-    <i class="fa fa-pinterest-p w3-hover-opacity"></i>
-    <i class="fa fa-twitter w3-hover-opacity"></i>
-    <i class="fa fa-linkedin w3-hover-opacity"></i>
+    <a href="https://www.facebook.com/Stack-Scholar-2080681158814876/" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a> 
+    <!-- <a href="http://www..com"><i class="fa fa-instagram w3-hover-opacity"></i></a> -->
+    <!-- <a href="http://www..com"><i class="fa fa-snapchat w3-hover-opacity"></i></a> -->
+    <!-- <a href="http://www..com"><i class="fa fa-pinterest-p w3-hover-opacity"></i></a> -->
+    <!-- <a href="http://www..com"><i class="fa fa-twitter w3-hover-opacity"></i></a> -->
+    <!-- <a href="http://www..com"><i class="fa fa-linkedin w3-hover-opacity"></i></a> -->
  </div>
 
 </footer>
@@ -177,6 +185,8 @@ crossorigin="anonymous"></script>
 crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
 crossorigin="anonymous"></script>
+<script src="/mini-upload-form/assets/js/login.js"></script>
+
 
 </body>
 </html>

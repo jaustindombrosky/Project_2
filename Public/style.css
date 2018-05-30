@@ -213,6 +213,10 @@ hr {
   cursor: pointer;
 }
 
+#signoutButton {
+    float: right;
+}
+
 /* Clear floats */
 .clearfix::after {
   content: "";
