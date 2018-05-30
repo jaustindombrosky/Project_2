@@ -1,3 +1,8 @@
+.banner { 
+    height: 100px;
+    max-height:50%;
+}
+
 /* Modal */
 .modal {
     display: none;
