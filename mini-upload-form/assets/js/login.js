@@ -14,7 +14,7 @@ $(document).ready(function() {
     isLoggingInViaRegistration = false;
   
     firebase.auth().onAuthStateChanged(function(user) {
-      console.log(user);
+      console.log(user.email);
       if (user) {
         // User is signed in.
         var displayName = user.displayName;
@@ -25,21 +25,10 @@ $(document).ready(function() {
         var uid = user.uid;
         var providerData = user.providerData;
   
-        if (!isLoggingInViaRegistration) {
-          // alert("isLoggingInViaRegistration");
-          window.location = "index3.html";
-        }
+      
+    }});
   
-        // ...
-      } else {
-        // User is signed out.
-        // ...
-      }
-    });
-  
-    
     $("#loginButton").on("click", function(event) {
-      alert("I really really want to log in");
       var userEmail = $("#userEmail").val();
       var userPassword = $("#userPassword").val();
       console.log(userEmail);
@@ -49,7 +38,8 @@ $(document).ready(function() {
         .auth()
         .signInWithEmailAndPassword(userEmail, userPassword)
         .then(function(user) {
-          console.log('signinwithemailandpassowrd', user);
+          console.log('signinwithemailandpassword', user);
+          window.location = "index3.html";
         })
         .catch(function(error) {
           if (error.code == "auth/user-not-found") {
@@ -144,7 +134,9 @@ $(document).ready(function() {
   });
 
   $("#signoutButton").on("click", function(event) {
+    alert('verifies that signoutButton click works.');
      firebase.auth().signOut().then(function() {
+       alert('signout from firebase function');
       window.location = "index.html";
     // Sign-out successful.
   }).catch(function(error) {
