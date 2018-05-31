@@ -14,6 +14,7 @@ fileSelect.on("change", function(event){
     // console.log(docsRef)
     $("#submit").on("click", function(event){
         var docsRef = firebase.storage().ref("docs/" + file.name);
+        // console.log(docsRef)
         docsRef.put(file)
             .then(function(snapshot){
                 console.log(snapshot.metadata.generation)
