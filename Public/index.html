@@ -1,193 +1,223 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<title>Stack Scholar</title>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-red.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+  <title>Stack Scholar</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="https://www.gstatic.com/firebasejs/5.0.3/firebase.js"></script>
+  <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+  <link rel="stylesheet" href="https://www.w3schools.com/lib/w3-theme-red.css">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
     crossorigin="anonymous">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-<style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Lato", sans-serif}
-.w3-bar,h1,button {font-family: "Montserrat", sans-serif}
-.fa-anchor,.fa-coffee {font-size:200px}
-</style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <style>
+    body,
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+      font-family: "Lato", sans-serif
+    }
+
+    .w3-bar,
+    h1,
+    button {
+      font-family: "Montserrat", sans-serif
+    }
+
+    .fa-anchor,
+    .fa-coffee {
+      font-size: 200px
+    }
+  </style>
 </head>
+
 <body class="w3-theme-l5">
 
-<!-- Navbar -->
-<div class="w3-top">
-  <div class="w3-bar w3-red w3-card w3-left-align w3-large">
-    <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);" onclick="myFunction()" title="Toggle Navigation Menu"><i class="fa fa-bars"></i></a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
-    <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a> -->
-    <!-- Button to open the modal -->
-    <button class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" data-toggle="modal" data-target="#loginModal">Login</button>
-    <button class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" data-toggle="modal" data-target="#CreateAccountModal">Create Account</button>
-    <!-- <button onclick="document.getElementById('id02').style.display='block'">Create Account</button> -->
-    
-    <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"></a>
-  </div>
+  <!-- Navbar -->
+  <div class="w3-top">
+    <div class="w3-bar w3-red w3-card w3-left-align w3-large">
+      <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-red" href="javascript:void(0);"
+        onclick="myFunction()" title="Toggle Navigation Menu">
+        <i class="fa fa-bars"></i>
+      </a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large w3-white">Home</a>
+      <!-- <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white">Login</a> -->
+      <!-- Button to open the modal -->
+      <button class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" data-toggle="modal" data-target="#loginModal">Login</button>
+      <button class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white" data-toggle="modal" data-target="#CreateAccountModal">Create Account</button>
+      <!-- <button onclick="document.getElementById('id02').style.display='block'">Create Account</button> -->
 
-  <!-- Navbar on small screens -->
-  <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Login</a>
-    <a href="#" class="w3-bar-item w3-button w3-padding-large">Dropdown Here</a>
-  </div>
-</div>
-
-<!-- Header -->
-<header class="w3-container w3-red w3-center" style="padding:128px 16px">
-  <img src="images/stackscholar.png"  id="banner" alt="Stack Scholar" height=300px>
-</header>
-
-<!-- First Grid -->
-<div class="w3-row-padding w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-twothird">
-      <h1>STACK SCHOLAR</h1>
-      <h5 class="w3-padding-32">Our product is an open sourced peer reviewed journal website that caters to students and graduate professionals in the process of publishing research. We are creating an online repository to store, update, comment, and contribute to fellow scholarly journals that have yet to be published. Our goal is to facilitate open dialogue between individuals and groups that may have never had the opportunity to collaborate before our website was created. </h5>
-
-      <p class="w3-text-grey">We are a non profit entity that supports all scholarly works.</p>
+      <a href="#" class="w3-bar-item w3-button w3-hide-small w3-padding-large w3-hover-white"></a>
     </div>
 
-    <div class="w3-third w3-center">
-      <i class="fa fa-book w3-padding-64 w3-text-red fa-5x"></i>
+    <!-- Navbar on small screens -->
+    <div id="navDemo" class="w3-bar-block w3-white w3-hide w3-hide-large w3-hide-medium w3-large">
+      <a href="#" class="w3-bar-item w3-button w3-padding-large">Login</a>
+      <a href="#" class="w3-bar-item w3-button w3-padding-large">Dropdown Here</a>
     </div>
   </div>
-</div>
 
-<!-- Second Grid -->
-<div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
-  <div class="w3-content">
-    <div class="w3-third w3-center">
-      <i class="fa fa-cog fa-spin fa-5x fa-fw w3-text-red w3-padding-64 w3-margin-right"></i>
-      <span class="sr-only">Loading...</span>
-    </div>
+  <!-- Header -->
+  <header class="w3-container w3-red w3-center" style="padding:128px 16px">
+    <img src="images/stackscholar.png" id="banner" alt="Stack Scholar" height=300px>
+  </header>
 
-    <div class="w3-twothird">
-      <h1>GETTING STARTED</h1>
-      <h5 class="w3-padding-32">By creating an account you will be able to upload documents that you can then share and recieve comments and suggestions to help you complete your work.</h5>
+  <!-- First Grid -->
+  <div class="w3-row-padding w3-padding-64 w3-container">
+    <div class="w3-content">
+      <div class="w3-twothird">
+        <h1>STACK SCHOLAR</h1>
+        <h5 class="w3-padding-32">Our product is an open sourced peer reviewed journal website that caters to students and graduate professionals in
+          the process of publishing research. We are creating an online repository to store, update, comment, and contribute
+          to fellow scholarly journals that have yet to be published. Our goal is to facilitate open dialogue between individuals
+          and groups that may have never had the opportunity to collaborate before our website was created. </h5>
 
-      <p class="w3-text-grey">We believe people can offer insight and help when working in a collaborative model.  We are constantly updating and reviewing our site and appreciate any feedback in an effort to create a useful and practical experience.</p>
+        <p class="w3-text-grey">We are a non profit entity that supports all scholarly works.</p>
+      </div>
+
+      <div class="w3-third w3-center">
+        <i class="fa fa-book w3-padding-64 w3-text-red fa-5x"></i>
+      </div>
     </div>
   </div>
-</div>
 
-<div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
+  <!-- Second Grid -->
+  <div class="w3-row-padding w3-light-grey w3-padding-64 w3-container">
+    <div class="w3-content">
+      <div class="w3-third w3-center">
+        <i class="fa fa-cog fa-spin fa-5x fa-fw w3-text-red w3-padding-64 w3-margin-right"></i>
+        <span class="sr-only">Loading...</span>
+      </div>
+
+      <div class="w3-twothird">
+        <h1>GETTING STARTED</h1>
+        <h5 class="w3-padding-32">By creating an account you will be able to upload documents that you can then share and recieve comments and suggestions
+          to help you complete your work.</h5>
+
+        <p class="w3-text-grey">We believe people can offer insight and help when working in a collaborative model. We are constantly updating and
+          reviewing our site and appreciate any feedback in an effort to create a useful and practical experience.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="w3-container w3-black w3-center w3-opacity w3-padding-64">
     <h1 class="w3-margin w3-xlarge">TECH SUPPORT | FAQ | FORUMS | TERMS OF USE | PRIVACY | ACCESSIBILITY</h1>
-</div>
-
-<!-- The Modal (contains the login form) -->
-
-<div class="modal" id="loginModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Login</h5>
-        <button class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <form>
-          <div class="form-group">
-            <label for="username">Email</label>
-            <input id="userEmail" type="text" placeholder="Email" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input id="userPassword" type="password" placeholder="Password" class="form-control">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button id="forgot" class="btn btn-danger" data-dismiss="modal">Forgot Password</button>
-        <button id="closeButton" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button id="loginButton" class="btn btn-danger" data-dismiss="modal">Login</button>
-      </div>
-    </div>
   </div>
-</div>
 
-<!-- The Modal (contains the Sign Up form) -->
+  <!-- The Modal (contains the login form) -->
 
-<div class="modal" id="CreateAccountModal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title">Create Account</h5>
-        <button class="close" data-dismiss="modal">&times;</button>
-      </div>
-      <div class="modal-body">
-        <form>
+  <div class="modal" id="loginModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Login</h5>
+          <button class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form>
             <div class="form-group">
-                <label for="email">Email</label>
-                <input id="newEmail" type="text" placeholder="Email" class="form-control">
-              </div>
-          <div class="form-group">
-            <label for="name">Username</label>
-            <input id="newName" type="text" placeholder="Username" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="password">Password</label>
-            <input id="newPassword" type="password" placeholder="Password" class="form-control">
-          </div>
-          <div class="form-group">
-            <label for="password">Repeat Password</label>
-            <input id="confirmPassword" type="password" placeholder="Repeat Password" class="form-control">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button id="createButton" class="btn btn-danger" data-dismiss="modal">Sign Up</button>
+              <label for="username">Email</label>
+              <input id="userEmail" type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input id="userPassword" type="password" placeholder="Password" class="form-control">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button id="forgot" class="btn btn-danger" data-dismiss="modal">Forgot Password</button>
+          <button id="closeButton" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button id="loginButton" class="btn btn-danger" data-dismiss="modal">Login</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
 
+  <!-- The Modal (contains the Sign Up form) -->
 
+  <div class="modal" id="CreateAccountModal">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Create Account</h5>
+          <button class="close" data-dismiss="modal">&times;</button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input id="newEmail" type="text" placeholder="Email" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="name">Username</label>
+              <input id="newName" type="text" placeholder="Username" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="password">Password</label>
+              <input id="newPassword" type="password" placeholder="Password" class="form-control">
+            </div>
+            <div class="form-group">
+              <label for="password">Repeat Password</label>
+              <input id="confirmPassword" type="password" placeholder="Repeat Password" class="form-control">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button id="createButton" class="btn btn-danger" data-dismiss="modal">Sign Up</button>
+        </div>
+      </div>
+    </div>
+  </div>
 
-
-<!-- Footer -->
-<footer class="w3-container w3-padding-64 w3-center w3-opacity">  
-  <div class="w3-xlarge w3-padding-32">
-    <a href="https://www.facebook.com/Stack-Scholar-2080681158814876/" target="_blank"><i class="fa fa-facebook-official w3-hover-opacity"></i></a> 
-    <a href="http://www..com"><i class="fa fa-instagram w3-hover-opacity"></i></a>
-    <a href="http://www..com"><i class="fa fa-snapchat w3-hover-opacity"></i></a>
-    <a href="http://www..com"><i class="fa fa-pinterest-p w3-hover-opacity"></i></a>
-    <a href="http://www..com"><i class="fa fa-twitter w3-hover-opacity"></i></a>
-    <a href="http://www..com"><i class="fa fa-linkedin w3-hover-opacity"></i></a>
- </div>
-
-</footer>
-
-<script>
-// Used to toggle the menu on small screens when clicking on the menu button
-function myFunction() {
-    var x = document.getElementById("navDemo");
-    if (x.className.indexOf("w3-show") == -1) {
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-64 w3-center w3-opacity">
+    <div class="w3-xlarge w3-padding-32">
+      <a href="https://www.facebook.com/Stack-Scholar-2080681158814876/" target="_blank">
+        <i class="fa fa-facebook-official w3-hover-opacity"></i>
+      </a>
+      <a href="http://www..com">
+        <i class="fa fa-instagram w3-hover-opacity"></i>
+      </a>
+      <a href="http://www..com">
+        <i class="fa fa-snapchat w3-hover-opacity"></i>
+      </a>
+      <a href="http://www..com">
+        <i class="fa fa-pinterest-p w3-hover-opacity"></i>
+      </a>
+      <a href="http://www..com">
+        <i class="fa fa-twitter w3-hover-opacity"></i>
+      </a>
+      <a href="http://www..com">
+        <i class="fa fa-linkedin w3-hover-opacity"></i>
+      </a>
+    </div>
+  </footer>
+  <script>
+    // Used to toggle the menu on small screens when clicking on the menu button
+    function myFunction() {
+      var x = document.getElementById("navDemo");
+      if (x.className.indexOf("w3-show") == -1) {
         x.className += " w3-show";
-    } else { 
+      } else {
         x.className = x.className.replace(" w3-show", "");
+      }
     }
-}
-</script>
-
-
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
-crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
-crossorigin="anonymous"></script>
-<script src="/mini-upload-form/assets/js/login.js"></script>
-
+  </script>
+  <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4"
+    crossorigin="anonymous"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1"
+    crossorigin="anonymous"></script>
+  <script src="/mini-upload-form/assets/js/login.js"></script>
 
 </body>
 </html>
