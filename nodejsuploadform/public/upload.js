@@ -19,15 +19,5 @@ fileSelect.on("change", function(event){
                 console.log(snapshot.metadata.generation)
             });
         console.log()
-
-
     })
-
-    
-
 })
-
-// var filebutton = $()
-// filebutton.on()
-// var storageRef = firebase.storage().ref();
-// var docsRef = storageRef.child("documents/");
