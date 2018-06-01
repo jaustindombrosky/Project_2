@@ -1,7 +1,7 @@
 DROP DATABASE IF EXISTS fileuploaddb;
 CREATE database fileuploaddb;
 
-USE stack_;
+USE fileuploaddb;
 
 CREATE TABLE files (
     id INT AUTO_INCREMENT PRIMARY KEY,
@@ -12,5 +12,5 @@ CREATE TABLE files (
     user_id VARCHAR(100),
     user_name VARCHAR(100),
     user_email VARCHAR(100),
-
-SELECT * FROM ;
+);
+SELECT * FROM files;
