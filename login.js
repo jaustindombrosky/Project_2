@@ -29,6 +29,7 @@ firebase.auth().onAuthStateChanged(function(user) {
 }});
 
 $("#loginButton").on("click", function(event) {
+  window.location = "//index3.html";
   var userEmail = $("#userEmail").val();
   var userPassword = $("#userPassword").val();
   console.log(userEmail);
