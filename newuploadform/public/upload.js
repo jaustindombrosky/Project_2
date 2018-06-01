@@ -18,7 +18,25 @@ fileSelect.on("change", function(event){
         docsRef.put(file)
             .then(function(snapshot){
                 console.log(snapshot.metadata.generation)
+                $.ajax({
+                    url: "/document", 
+                    method: "POST",
+                    data: {docId: snapshot.metadata.generation}
+                })
+                .done(function(result){
+                    console.log('UPLOADED')
+                })
             });
         console.log()
+
+        // var docData ={
+                // docName: docName,
+                // docID: snapshot.metadata.generation,
+                // school: nameofschool,
+                // keywords: ....
+        //}
+
+    //ajax
+    
     })
 })
